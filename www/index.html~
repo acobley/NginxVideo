@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <!-- flowplayer javascript component
+    <script src="http://releases.flowplayer.org/js/flowplayer-3.2.16.min.js"></script>
+   -->
+  </head>
+
+  <body>
+    <h1>Test video player</h1>
+    <div id="player" style="width:644px;height:276px;margin:0 auto;text-align:center">
+    
+    </div>
+    <script>
+
+      $f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", {
+      clip: {
+      url: 'bbb.mp4',
+      scaling: 'fit',
+      provider: 'hddn'
+      },
+
+      plugins: {
+      hddn: {
+      url: "/path/to/flowplayer.rtmp-3.2.13.swf",
+
+      // netConnectionUrl defines where the streams are found
+      netConnectionUrl: 'rtmp://ac51041-docker.cloudapp.net:1935/vod2'
+	}
+	},
+	canvas: {
+	backgroundGradient: 'none'
+	}
+	});
+    </script>
+  </body>
+  </html>

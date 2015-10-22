@@ -1,0 +1,66 @@
+user www-data;
+   worker_processes 1;
+      pid /run/nginx.pid;
+      daemon off;
+    events {
+       worker_connections  1024;
+    }
+    rtmp {
+        server {
+                listen 1935;
+
+        chunk_size 4000;
+
+        # video on demand for flv files
+           application vod {
+        play /var/flvs;
+       }
+
+        # video on demand for mp4 files
+           application vod2 {
+                  play /var/mp4s;
+                     }
+                    }
+               }
+       http {
+            sendfile on;
+       tcp_nopush on;
+       tcp_nodelay on;
+            keepalive_timeout 65;
+            types_hash_max_size 2048;
+            default_type application/octet-stream;
+                 access_log /var/log/nginx/access-streaming.log;
+                 error_log /var/log/nginx/error-streaming.log;
+       gzip on;
+       gzip_disable "msie6";
+
+server {
+        # in case we have another web server on port 80
+   #        listen      8080;
+        root /var/www/html;
+   index           index.html index.htm;   
+        # This URL provides RTMP statistics in XML
+           location /stat {
+                rtmp_stat all;
+                         rtmp_stat_stylesheet stat.xsl;
+                       }
+
+         index           index.html index.htm;
+        location /stat.xsl {
+               # XML stylesheet to view RTMP stats.
+                      # Copy stat.xsl wherever you want
+                        # and put the full directory path here
+                               root /var/www/;
+                             }
+
+        location /hls {
+               # Serve HLS fragments
+                      types {
+                            application/vnd.apple.mpegurl m3u8;
+                                  video/mp2t ts;
+                                    }
+                                           alias /tmp/app;
+                                             expires -1;
+                                                }
+                                               }
+}
