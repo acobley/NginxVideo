@@ -19,7 +19,5 @@ RUN mkdir -p /var/www
 RUN mkdir -p /var/log/nginx
 RUN cp /home/nginx-rtmp-module/stat.xsl /var/www/
 ADD nginx/nginx.conf /usr/local/nginx-streaming/conf/nginx.conf
-ADD www/index.html /var/www/
-ADD www/crossdomain.xml /var/www/
 EXPOSE 80
 EXPOSE 1935
