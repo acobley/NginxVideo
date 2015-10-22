@@ -1,5 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER Andy C "aecobley@dundee.ac.uk"
+# From https://www.leaseweb.com/labs/2013/11/streaming-video-demand-nginx-rtmp-module/
 ENV REFRESHED_AT 2015-10-21
 RUN apt-get -y -q update 
 RUN apt-get install -y git
