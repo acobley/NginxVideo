@@ -6,6 +6,7 @@ From https://www.leaseweb.com/labs/2013/11/streaming-video-demand-nginx-rtmp-mod
 
 Usage:
 docker build videoserv .
+
 docker run -d -p 1935:1935 -p 80:80 --name videoserv -v $PWD/mp4:/var/mp4s  -v $PWD/www:/var/www video /usr/local/nginx-streaming/sbin/nginx
 
 Expects mp4 files in the mp4 directory
