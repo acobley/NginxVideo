@@ -1,32 +1,26 @@
-<!--<link href="http://vjs.zencdn.net/5.0.0/video-js.css" rel="stylesheet">-->
 
-<!--&lt;!&ndash; If you'd like to support IE8 &ndash;&gt;-->
-<!--<script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>-->
-
-<link href="http://vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/4.11/video.js"></script><html>
   <head>
     <!--<link href="http://vjs.zencdn.net/5.0.0/video-js.css" rel="stylesheet">-->
 
     <!--&lt;!&ndash; If you'd like to support IE8 &ndash;&gt;-->
     <!--<script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>-->
 
-    <link href="http://vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/4.11/video.js"></script>
+    <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
+    <script src="scripts/videojs-flash.min.js"></script>
    
   </head>
 
   <body>
-    <h1>Test video player</h1>
+    <h1>Test video player (local)</h1>
 
-    <div id="instructions">
+<div id="instructions">
 
       <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
 	     controls preload="none" poster='pics/bbb.png'
 	     data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-	<source src="rtmp://ac51041-docker.cloudapp.net:1935/vod2/bbb.mp4" type='rtmp/mp4' />
-	<!--<source src="http://vjs.zencdn.net/v/oceans.webm" type='video/webm' />-->
-      </video>
+	<source src="rtmp://localhost:1935/vod2/bbb.mp4" type='rtmp/mp4' />
+	      </video>
       </div>
   </body>
   </html>
