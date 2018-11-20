@@ -1,4 +1,8 @@
 docker stop videoserv
 docker rm videoserv
 docker build -t video .
+docker run -d -p 1935:1935 -p 82:8080 --name videoserv -v $PWD/mp4:/var/mp4s  -v $PWD/www:/var/www -it video bash
+docker exec -it videoserv bash
+exit
+
 docker run -d -p 1935:1935 -p 82:80 --name videoserv -v $PWD/mp4:/var/mp4s  -v $PWD/www:/var/www video /usr/local/nginx-streaming/sbin/nginx

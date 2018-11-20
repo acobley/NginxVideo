@@ -13,7 +13,7 @@ RUN mkdir -p /home/nginx-rtmp-module
 RUN git clone https://github.com/arut/nginx-rtmp-module /home/nginx-rtmp-module
 RUN mkdir -p /home/nginx
 RUN cd /home/nginx && wget http://nginx.org/download/nginx-1.4.3.tar.gz && tar zxpvf nginx-1.4.3.tar.gz
-RUN cd /home/nginx/nginx-1.4.3 && ./configure --add-module=/home/nginx-rtmp-module/  --with-file-aio --with-http_ssl_module --prefix=/usr/local/nginx-streaming/
+RUN cd /home/nginx/nginx-1.4.3 && ./configure --add-module=/home/nginx-rtmp-module/ --with-http_mp4_module --with-file-aio --with-http_ssl_module --prefix=/usr/local/nginx-streaming/
 RUN cd /home/nginx/nginx-1.4.3&& make && make install
 RUN mkdir -p /var/www/html
 RUN mkdir -p /var/nginx-streaming
