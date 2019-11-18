@@ -7,13 +7,13 @@ Based on Blog here:
 
 From https://www.leaseweb.com/labs/2013/11/streaming-video-demand-nginx-rtmp-module/
 
-##Dockerhub
+## Dockerhub
 The build is automaticaly built to docker hub here:
 
 https://hub.docker.com/r/acobley/nginxvideo/
 
 
-##Usage:
+## Usage:
 
 docker build videoserv .
 
